@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, View, Button } from "react-native";
+import { Provider } from "react-redux";
+
+import store from "./state";
+import { makeErrorAsyncAction } from "./state/actions";
 
 export default function App() {
+  const onPress = () => {
+    // store.dispatch(makeErrorAsyncAction());
+    throw new Error("FFF");
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Button title="Do error" onPress={onPress} />
+      </View>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
