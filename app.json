@@ -21,6 +21,19 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "romach-dev",
+            "project": "kb-pure",
+            "authToken": "DONT UPLOAD SECRETS TO GIT",
+            "dsn": "DONT UPLOAD SECRETS TO GIT"
+          }
+        }
+      ]
     }
   }
 }
